@@ -54,7 +54,7 @@ notebooks for hydrus2d
         ```
         {'name' : 'Profiles Below Emitter', 
         'keys' : 
-          {'be' : {'below emitter' : [" cm cum irr", " cm cum irr, mid off period", 
+          {'ts' : {'time emitter' : [" cm cum irr", " cm cum irr, mid off period", 
                                       " cm cum irr, before ON period"], 
            'ss' : {'scheme' : [i for i in range(1,8)] } ,
            'c'  : {'cumulative irriation, cm' : [19.1, 38.2, 152.79, 1680.68] } ,
@@ -70,11 +70,11 @@ notebooks for hydrus2d
  
       * Logic: 
 
-  ` for b in be `
+  ` for t in ts `
  
     |    | s1  | s1  | s1  | s1  | |    | s2  | s2  | s2  | s2  | |
     | -- | --- | --- | --- | --- |-| -- | --- | --- | --- | --- |-|           
-    |    | b   | b   | b   | b   | |    | b   | b   | b   | b   | |
+    |    | t   | t   | t   | t   | |    | t   | t   | t   | t   | |
     |    | s1  | s1  | s1  | s1  | |    | s2  | s2  | s2  | s2  | |
     |d   | c1  | c2  | c3  | c4  | |d   | c1  | c2  | c3  | c4  | |
     |0   | v   | v   | v   | v   | |0   | v   | v   | v   | v   | |
