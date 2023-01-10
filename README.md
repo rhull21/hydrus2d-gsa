@@ -30,7 +30,19 @@ notebooks for hydrus2d
          }
          ``` 
 
-            
- |    | be1 | be1 | be1 | be1 |
+ | -- | --- | --- | --- | --- |-| -- | --- | --- | --- | --- | |           
+ |    | be1 | be1 | be1 | be1 | |    | be1 | be1 | be1 | be1 | |
+ |    | s1  | s1  | s1  | s1  | |    | s2  | s2  | s2  | s2  | |
+ |d   | c1  | c2  | c3  | c4  | |d   | c1  | c2  | c3  | c4  | |
+ |0   | v   | v   | v   | v   | |0   | v   | v   | v   | v   | |
+ |.   | v   | v   | v   | v   | |.   | v   | v   | v   | v   | |
+ |200 | v   | v   | v   | v   | |200 | v   | v   | v   | v   | |
+ |    |     |     |     |     | |    |     |     |     |     | |
+ |    | be2 | be2 | be2 | be2 | |    | be2 | be2 | be2 | be2 | |
+ |    | s1  | s1  | s1  | s1  | |    | s2  | s2  | s2  | s2  | |
+ |d   | c1  | c2  | c3  | c4  | |d   | c1  | c2  | c3  | c4  | |
+ |0   | v   | v   | v   | v   | |0   | v   | v   | v   | v   | |
+ |.   | v   | v   | v   | v   | |.   | v   | v   | v   | v   | |
+ |200 | v   | v   | v   | v   | |200 | v   | v   | v   | v   | |
 
   
