@@ -45,4 +45,8 @@ notebooks for hydrus2d
 |.   | v   | v   | v   | v   | |.   | v   | v   | v   | v   | |
 |200 | v   | v   | v   | v   | |200 | v   | v   | v   | v   | |
 
-  
+ 
+| Syntax      | Description |
+| ----------- | ----------- |
+| Header      | Title       |
+| Paragraph   | Text        |
