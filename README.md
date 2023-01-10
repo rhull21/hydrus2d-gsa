@@ -12,10 +12,12 @@ notebooks for hydrus2d
     * Widths - 16,30,60
  
 | .   | .   | w   | w1  | w2  | w.. | wn  |
+| --- | --- | --- | --- | --- | --- | --- |
 | d1  | c1  | s1  | v1  | v2  | v.. | vn  | 
  
  
     * Depths - L (below emitter), R (opposite emitter)
+      * Dictionary
         ```
         {'name' : 'Profiles Below Emitter', 
         'keys' : 
@@ -32,20 +34,18 @@ notebooks for hydrus2d
            }
          }
          ``` 
-|    | s1  | s1  | s1  | s1  | |    | s2  | s2  | s2  | s2  | |
-| -- | --- | --- | --- | --- |-| -- | --- | --- | --- | --- |-|           
-|    | be1 | be1 | be1 | be1 | |    | be1 | be1 | be1 | be1 | |
-|    | s1  | s1  | s1  | s1  | |    | s2  | s2  | s2  | s2  | |
-|d   | c1  | c2  | c3  | c4  | |d   | c1  | c2  | c3  | c4  | |
-|0   | v   | v   | v   | v   | |0   | v   | v   | v   | v   | |
-|... | v   | v   | v   | v   | |... | v   | v   | v   | v   | |
-|200 | v   | v   | v   | v   | |200 | v   | v   | v   | v   | |
-|    |     |     |     |     | |    |     |     |     |     | |
-|    | be2 | be2 | be2 | be2 | |    | be2 | be2 | be2 | be2 | |
-|    | s1  | s1  | s1  | s1  | |    | s2  | s2  | s2  | s2  | |
-|d   | c1  | c2  | c3  | c4  | |d   | c1  | c2  | c3  | c4  | |
-|0   | v   | v   | v   | v   | |0   | v   | v   | v   | v   | |
-|... | v   | v   | v   | v   | |... | v   | v   | v   | v   | |
-|200 | v   | v   | v   | v   | |200 | v   | v   | v   | v   | |
+      * Logic: 
+
+  ` for b in be[1,2,3] `
+  |    | s1  | s1  | s1  | s1  | |    | s2  | s2  | s2  | s2  | |
+  | -- | --- | --- | --- | --- |-| -- | --- | --- | --- | --- |-|           
+  |    | b   | b   | b   | b   | |    | b   | b   | b   | b   | |
+  |    | s1  | s1  | s1  | s1  | |    | s2  | s2  | s2  | s2  | |
+  |d   | c1  | c2  | c3  | c4  | |d   | c1  | c2  | c3  | c4  | |
+  |0   | v   | v   | v   | v   | |0   | v   | v   | v   | v   | |
+  |... | v   | v   | v   | v   | |... | v   | v   | v   | v   | |
+  |200 | v   | v   | v   | v   | |200 | v   | v   | v   | v   | |
+  |    |     |     |     |     | |    |     |     |     |     | |
+  ...
 
  
