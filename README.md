@@ -10,20 +10,33 @@ notebooks for hydrus2d
 * Target Data: 
   * Criteria: 
     * Widths - 16,30,60
+       * Dictionary:
  
-| .   | .   | w   | w1  | w2  | w.. | wn  |
-| --- | --- | --- | --- | --- | --- | --- |
-| d1  | c1  | s1  | v1  | v2  | v.. | vn  | 
+      * Logic: 
+ 
+  ```
+   for w in widths 
+     for s in ss
+  ```
+ 
+    | .   | .   | w   | w1  | w2  | w.. | wn  |
+    | --- | --- | --- | --- | --- | --- | --- |
+    | d1  | c1  | s   | v1  | v2  | v.. | vn  |  
+    | d1  | c2  | s   | v1  | v2  | v.. | vn  |  
+    | d1  | c3  | s   | v1  | v2  | v.. | vn  |  
+    | d1  | c4  | s   | v1  | v2  | v.. | vn  |   
+    | ... |     |     |     |     |     |     |   
  
  
     * Depths - L (below emitter), R (opposite emitter)
-      * Dictionary
+ 
+      * Dictionary:
         ```
         {'name' : 'Profiles Below Emitter', 
         'keys' : 
           {'be' : {'below emitter' : [" cm cum irr", " cm cum irr, mid off period", 
                                       " cm cum irr, before ON period"], 
-           's'  : {'scheme' : [i for i in range(1,8)] } ,
+           'ss' : {'scheme' : [i for i in range(1,8)] } ,
            'c'  : {'cumulative irriation, cm' : [19.1, 38.2, 152.79, 1680.68] } ,
            'v'  : 'volumetric water content',
            'd'  : {'depths' : [0, 1.666667, 3.333333, 5, 6.666667, 10, 13.33333, 18.33333, 25,
@@ -34,9 +47,11 @@ notebooks for hydrus2d
            }
          }
          ``` 
+ 
       * Logic: 
 
-  ` for b in be[1,2,3] `
+  ` for b in be `
+ 
   |    | s1  | s1  | s1  | s1  | |    | s2  | s2  | s2  | s2  | |
   | -- | --- | --- | --- | --- |-| -- | --- | --- | --- | --- |-|           
   |    | b   | b   | b   | b   | |    | b   | b   | b   | b   | |
