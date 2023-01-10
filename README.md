@@ -10,7 +10,10 @@ notebooks for hydrus2d
 * Target Data: 
   * Criteria: 
     * Widths - 16,30,60
-        
+ 
+| .   | .   | w   | w1  | w2  | w.. | wn  |
+| d1  | c1  | s1  | v1  | v2  | v.. | vn  | 
+ 
  
     * Depths - L (below emitter), R (opposite emitter)
         ```
@@ -29,7 +32,7 @@ notebooks for hydrus2d
            }
          }
          ``` 
-|.   | .   | .   | .   | .   |.| .  | .   | .   | .   | .   |.|
+|    | s1  | s1  | s1  | s1  | |    | s2  | s2  | s2  | s2  | |
 | -- | --- | --- | --- | --- |-| -- | --- | --- | --- | --- |-|           
 |    | be1 | be1 | be1 | be1 | |    | be1 | be1 | be1 | be1 | |
 |    | s1  | s1  | s1  | s1  | |    | s2  | s2  | s2  | s2  | |
