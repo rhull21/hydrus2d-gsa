@@ -52,7 +52,7 @@ notebooks for hydrus2d
 | Paragraph   | Text        |
  
 |.   | v   | v   | v   | v   |.|
-| -- | --- | --- | --- | --- | |     
+| -- | --- | --- | --- | --- |-|     
 |    | be1 | be1 | be1 | be1 | |
 |    | s1  | s1  | s1  | s1  | |
 |d   | c1  | c2  | c3  | c4  | |
