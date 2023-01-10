@@ -8,6 +8,11 @@ notebooks for hydrus2d
       * e.g.  `Sulphide AND SCC\Raw data`
       
 * Target Data: 
+  * Sample Nomenclature
+    * `<Sample_Name>_<Scheme_Name>_Water_Content_Time_<Time_Name>_-_<time_amount>_hours_[<Cross-Section_Number>_-_<Cross_Section_Amt>.txt`
+    * e.g.
+      * `Sulphide_AND_SCC_No_Ramp-up_Water_Content_Time_2_-_1_0_hours.txt`
+      * `Sulphide_AND_SCC_Scheme_5_Water_Content_Time_3_-_6_5_hours_Cross-Section_No_4_-_15cm.txt`
   * Criteria: 
  
     * Widths `w` - for depths `15, 30, 60?`
