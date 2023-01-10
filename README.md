@@ -9,12 +9,11 @@ notebooks for hydrus2d
       
 * Target Data: 
   * Criteria: 
-    * Depths - 16,30,60
-    * Samples - 1+
-    * Scheme - 1-7
-    * Widths - L, R
-  * form
+    * Widths - 16,30,60
+        
  
+    * Depths - L (below emitter), R (opposite emitter)
+        ```
         {'name' : 'Profiles Below Emitter', 
         'keys' : 
           {'be' : {'below emitter' : [" cm cum irr", " cm cum irr, mid off period", 
@@ -29,22 +28,22 @@ notebooks for hydrus2d
                                }
            }
          }
-           
+         ``` 
 
             
-              |    | be1 | be1 | be1 | be1 | |    | be1 | be1 | be1 | be1 | |
-              |    | s1  | s1  | s1  | s1  | |    | s2  | s2  | s2  | s2  | |
-              |d   | c1  | c2  | c3  | c4  | |d   | c1  | c2  | c3  | c4  | |
-              |0   | v   | v   | v   | v   | |0   | v   | v   | v   | v   | |
-              |.   | v   | v   | v   | v   | |.   | v   | v   | v   | v   | |
-              |200 | v   | v   | v   | v   | |200 | v   | v   | v   | v   | |
-              |    |     |     |     |     | |    |     |     |     |     | |
-              |    | be2 | be2 | be2 | be2 | |    | be2 | be2 | be2 | be2 | |
-              |    | s1  | s1  | s1  | s1  | |    | s2  | s2  | s2  | s2  | |
-              |d   | c1  | c2  | c3  | c4  | |d   | c1  | c2  | c3  | c4  | |
-              |0   | v   | v   | v   | v   | |0   | v   | v   | v   | v   | |
-              |.   | v   | v   | v   | v   | |.   | v   | v   | v   | v   | |
-              |200 | v   | v   | v   | v   | |200 | v   | v   | v   | v   | |
-              ...
+ |    | be1 | be1 | be1 | be1 | |    | be1 | be1 | be1 | be1 | |
+ |    | s1  | s1  | s1  | s1  | |    | s2  | s2  | s2  | s2  | |
+ |d   | c1  | c2  | c3  | c4  | |d   | c1  | c2  | c3  | c4  | |
+ |0   | v   | v   | v   | v   | |0   | v   | v   | v   | v   | |
+ |.   | v   | v   | v   | v   | |.   | v   | v   | v   | v   | |
+ |200 | v   | v   | v   | v   | |200 | v   | v   | v   | v   | |
+ |    |     |     |     |     | |    |     |     |     |     | |
+ |    | be2 | be2 | be2 | be2 | |    | be2 | be2 | be2 | be2 | |
+ |    | s1  | s1  | s1  | s1  | |    | s2  | s2  | s2  | s2  | |
+ |d   | c1  | c2  | c3  | c4  | |d   | c1  | c2  | c3  | c4  | |
+ |0   | v   | v   | v   | v   | |0   | v   | v   | v   | v   | |
+ |.   | v   | v   | v   | v   | |.   | v   | v   | v   | v   | |
+ |200 | v   | v   | v   | v   | |200 | v   | v   | v   | v   | |
+ ...
 
   
