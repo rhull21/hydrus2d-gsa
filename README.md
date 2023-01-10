@@ -9,7 +9,9 @@ notebooks for hydrus2d
       
 * Target Data: 
   * Criteria: 
+ 
     * Widths `w` - for depths `15, 30, 60?`
+ 
        * Dictionary:
  
          ```
