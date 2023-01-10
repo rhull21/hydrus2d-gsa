@@ -15,8 +15,8 @@ notebooks for hydrus2d
       * Logic: 
  
   ```
-   for w in widths 
-     for s in ss
+   for w in widths # new page
+     for s in ss   # stack on same page
   ```
  
     | .   | .   | w   | w1  | w2  | w.. | wn  |
