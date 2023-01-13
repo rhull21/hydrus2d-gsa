@@ -1,10 +1,48 @@
 import os
 import numpy as np
 import xarray as xr
+import pandas as pd
 
 def read_item(path):
     return np.genfromtxt(fname=path,  skip_header=2, usecols=(1,2)) #delimiter='\t',
 
+def get_set_from_collection(scheme, section, sample_collection, where_period=None, where_irrigation=None):
+    li=  [
+        member for member in sorted(sample_collection, key = lambda x: x.attrs['time']) 
+            if (
+                (member.attrs['scheme']==scheme)  
+                and (member.attrs['section']==section) 
+            )
+        ]
+    
+    if where_period is not None:
+        li = [
+                outermember for outermember in 
+                    [
+                    innermember for innermember in li
+                        if (innermember.attrs['time_info']['period'] is not None)
+                    ]
+                if (where_period in outermember.attrs['time_info']['period'])
+            ]
+
+    if where_irrigation is not None: 
+        li = [
+                outermember for outermember in 
+                    [
+                    innermember for innermember in li
+                        if (innermember.attrs['time_info']['cumulative_irrigation_cm'] is not None)
+                    ]
+                if (where_irrigation in outermember.attrs['time_info']['cumulative_irrigation_cm'])
+            ]
+
+    return li
+
+def get_sets_from_collection(schemes, sections, sample_collection):
+    lili = []
+    for scheme in schemes:
+        for section in sections:
+            lili.append(get_set_from_collection(scheme, section, sample_collection))
+    return lili
 
 
 class sample_items():
@@ -143,7 +181,8 @@ class sample_items():
             # path = self.path
             item = read_item(path)
 
-            item_arr = xr.DataArray(data=item[:,1], 
+            item_arr = xr.DataArray(data=item[:,1],
+                        name=path,  
                         coords={
                             "distance" : item[:,0]
                             },
@@ -163,66 +202,37 @@ class sample_items():
             return item_arr
 
 
-#    class Sample_Item:
+def write_horizontal(path, li, header=True, write_bool=True, insert_list=['cumulative_irrigation_cm', 'scheme']):
 
-#         # def __init__(self, sample_items):
-#         #     self.sample_items = sample_items
-            
-#         def set_path(self, id):
-#             '''
-#             id : index of type int, or a string containing a path
-#             '''
-#             if type(id) is int:
-#                 self.path = self.sample_items.all_paths[id]
-#             elif type(id) is str: 
-#                 self.path = id 
-#             else:
-#                 print('invalid path')
+    for l in li:
+        if write_bool != True:
+            mode='a'
+            df = l.to_dataframe().T
+            header=False
 
-#             return self.path
+        else:
+            mode='w'
+            write_bool=False
+            df = l.to_dataframe().T
+            header=True
+        
+        # print(df.index)
+        df.insert(loc=0, column=insert_list[0], value=str(l.attrs['time_info'][insert_list[0]][0]))
+        df.insert(loc=1, column=insert_list[1],  value=str(l.attrs[insert_list[1]][0]))
 
-#         def extract_time_info_filter(self, filter):
-#             '''
-#             Adds time info attributes to item
-#             To Do : Will want to update to make more flexible
-#             '''
-#             self.item_arr.attrs['time_info'] = {
-#                                         "cumulative_irrigation_cm" : self.sample_items.time_info['ï»¿cum_irr_cm'][filter], 
-#                                         "period" : self.sample_items.time_info['period'][filter]
-#             }
-#             return None
+        df.to_csv(path, mode=mode, header=header) 
 
-#         def extract_attr_base(self, tp):
-#             '''
-#             extracts information about data from parent class based on path to item
-#             '''
-#             if tp == 'time': 
-#                 li = [self.sample_items.unique_times[t] for t in self.sample_items.unique_times.keys() if self.path.find(t)>=0 ]
-#             elif tp == 'section': 
-#                 li = [sect for sect in self.sample_items.unique_sects.keys() if self.path.find(sect)>=0 ]
-#             elif tp == 'scheme': 
-#                 li = [str(self.sample_items.unique_schemes[schem]) for schem in self.sample_items.unique_schemes.keys() if self.path.find(schem)>=0 ]
-#             return li
+    try:
+        pd.DataFrame(columns=[' ' for i in range(len(df.columns))]).to_csv(path, mode=mode) 
+    except:
+        print(f"No Data in collection ")
 
-#         def create_item(self):
-#             # path = self.path
-#             self.item = read_item(self.path)
-
-#             self.item_arr = xr.DataArray(data=self.item[:,1], 
-#                         coords={
-#                             "distance" : self.item[:,0]
-#                             },
-#                             dims=["distance"],
-#                             attrs={
-#                             'path' : self.path, 
-#                             'time' : self.extract_attr_base(tp='time')[0], # extract attributes from list
-#                             'section' : self.extract_attr_base(tp='section')[0], 
-#                             'scheme' : self.extract_attr_base(tp='scheme')[0], 
-#                             }
-#                 )
-
-#             # add important time info to attributes
-#             filter = self.sample_items.time_info[self.item_arr.attrs['scheme']]==self.item_arr.attrs['time']
-#             self.extract_time_info_filter(filter)
-
-#             return self.item_arr
+def write_horizontal_sheet(section, schemes, sample_collection, where_period=b'Before next ON period', where_irrigation=None, save_dir='',  insert_list=['cumulative_irrigation_cm', 'scheme']):
+    
+    write_bool = True
+    for scheme in schemes:
+        # print(scheme, section)
+        li = get_set_from_collection(scheme=scheme,section=section,sample_collection=sample_collection, where_period=where_period, where_irrigation=where_irrigation)
+        # print(li)
+        write_horizontal(path=os.path.join(save_dir,section+'.csv'), li=li, header=True, write_bool=write_bool, insert_list=insert_list)   
+        write_bool = False
